@@ -1,20 +1,33 @@
 from telethon.sync import TelegramClient
 import asyncio
+import os
+from flask import Flask
 
 API_ID = 24410919
 API_HASH = "11a3a20ee4f9e851e35412b0a2eedb3a"
-
 SESSION_NAME = "my_account"
 
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "✅ Telegram bot ishga tushdi!"
 
 async def keep_online():
     await client.start()
     print("✅ Shaxsiy akkaunt onlayn!")
 
     while True:
-        await client.send_message('me', '🟢 Online!')  # Har 5 daqiqada o‘zingizga xabar yuboradi
+        await client.send_message('me', '🟢 Online!')  # Har 5 daqiqada xabar yuboradi
         await asyncio.sleep(300)
 
+async def main():
+    await asyncio.gather(
+        keep_online(),
+        asyncio.to_thread(app.run, host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    )
+
 if __name__ == "__main__":
-    client.loop.run_until_complete(keep_online())
+    asyncio.run(main())
