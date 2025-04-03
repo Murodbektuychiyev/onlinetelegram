@@ -20,8 +20,8 @@ async def keep_online():
     print("✅ Shaxsiy akkaunt onlayn!")
 
     while True:
-        await client.send_message('me', '🟢 Online!')  # Har 5 daqiqada xabar yuboradi
-        await asyncio.sleep(300)
+        await client.send_message('me', '🟢 Online!')  # Har 33 soniyada xabar yuboradi
+        await asyncio.sleep(33)
 
 async def main():
     await asyncio.gather(
