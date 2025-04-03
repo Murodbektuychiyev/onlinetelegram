@@ -1,2 +1,0 @@
-telethon==1.30.3
-asyncio==3.4.3
