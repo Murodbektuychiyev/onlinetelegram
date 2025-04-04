@@ -13,15 +13,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "✅ Telegram bot ishga tushdi!"
+    return "✅ Telegram akkaunt ishga tushdi!"
 
 async def keep_online():
     await client.start()
-    print("✅ Shaxsiy akkaunt ishga tushdi!")
+    print("✅ Shaxsiy akkaunt onlayn!")
 
     while True:
-        await client.send_message('me', 'Ishga tushurilgan ✅')  # Har 44 soniyada xabar yuboradi
-        await asyncio.sleep(44)
+        await client.send_message('me', '✅ Ishga tushurilgan!')  # Har 60 soniyada xabar yuboradi
+        await asyncio.sleep(60)
 
 async def main():
     await asyncio.gather(
