@@ -17,11 +17,11 @@ def home():
 
 async def keep_online():
     await client.start()
-    print("✅ Shaxsiy akkaunt onlayn!")
+    print("✅ Shaxsiy akkaunt ishga tushdi!")
 
     while True:
-        await client.send_message("me", "🟢 Online!")  # Har 30 soniyada "Saved Messages" ga xabar yuboradi
-        await asyncio.sleep(30)
+        await client.send_message('me', 'Ishga tushurilgan ✅')  # Har 44 soniyada xabar yuboradi
+        await asyncio.sleep(44)
 
 async def main():
     await asyncio.gather(
